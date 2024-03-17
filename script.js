@@ -68,7 +68,7 @@ map.on('load', () => {
 
     // create a bounding box
     let bboxgeojson; // create empty variable
-    //document.getElementById('bboxbutton').addEventListener('click', () => {
+    
         let bbox = turf.envelope(pedcycgeojson); // send point geojson to turf, creates an envelope (bounding box) around points; store as a feature collection variable 'bbox'
         
         bboxgeojson = {
@@ -149,8 +149,8 @@ map.on('load', () => {
         'type': 'circle',
         'source': 'pedcyc-collisions-data',
         'paint': {
-            'circle-radius': 3,
-            'circle-color': 'blue'
+            'circle-radius': 2,
+            'circle-color': '#ce1256'
         },
     });
 
@@ -165,7 +165,7 @@ map.on('load', () => {
         'source': 'collis-bbox',
         'paint': {
             'fill-color': 'red',
-            'fill-opacity': 0.5,
+            'fill-opacity': 0, // opacity to 0 so that it won't display
             'fill-outline-color': 'black'
         }
     });
@@ -180,11 +180,22 @@ map.on('load', () => {
         'type': 'fill',
         'source': 'hexgrid-data',
         'paint': {
-            'fill-color': 'yellow',
-            'fill-opacity': 0.5,
+            'fill-color': [ // fill color based on COUNT attribute of each hexagon
+                'step',
+                ['get', 'COUNT'],
+                '#edf8fb', // if COUNT is 0
+                1, '#9ebcda', // if COUNT is 1-5
+                5, '#8c96c6', // if COUNT is 5-10
+                10, '#8c6bb1', // if COUNT is 10-40
+                40, '#6e016b' // if COUNT is 40-69
+            ],
+            'fill-opacity': 0.8,
             'fill-outline-color': 'black'
-        }
-    });
+        },
+    },
+        'pedcyc-collisions' // places hexgrid layer below points
+    
+    );
 
 
 
