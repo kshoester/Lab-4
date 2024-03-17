@@ -246,14 +246,50 @@ document.getElementById('layercheck').addEventListener('change', (e) => {
     );
 });
 
+// change display of legend based on check box
+let legendcheck = document.getElementById('legendcheck');
+
+legendcheck.addEventListener('click', () => {
+    if (legendcheck.checked) {
+        legendcheck.checked = true;
+        legend.style.display = 'block';
+    }
+    else {
+        legend.style.display = "none";
+        legendcheck.checked = false;
+    }
+});
+
+// filter pedcyc-collisions layer to show selected involved party type from dropdown selection
+let collisinvtype;
+
+document.getElementById("invpartyfieldset").addEventListener('change',(e) => {   
+    collisinvtype = document.getElementById('INVTYPE').value;
+
+    console.log(INVTYPE); // Useful for testing whether correct values are returned from dropdown selection
+
+    if (collisinvtype == 'All') {
+        map.setFilter(
+            'pedcyc-collisions',
+            ['has', '_id'] // Returns all polygons from layer that have a value in _id field
+        );
+    } else {
+        map.setFilter(
+            'pedcyc-collisions',
+            ['==', ['get', 'INVTYPE'], collisinvtype] // returns polygon with collisinvtype value that matches dropdown selection
+        );
+    }
+
+});
+
 //------------ LEGEND ---------------//
 //Declare array variables for labels and colours
 const legendlabels = [
-    '0-1',
-    '2-5',
-    '6-10',
-    '10-40',
-    '40-69'
+    '0 - 1',
+    '2 - 5',
+    '6 - 10',
+    '10 - 40',
+    '40 - 69'
 ];
 
 const legendcolours = [
