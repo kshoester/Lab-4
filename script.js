@@ -156,7 +156,8 @@ map.on('load', () => {
                 'interpolate',
                 ['linear'],
                 ['zoom'],
-                12, 2, // when zoom is 12 or less, 2px
+                11.5, 1.5, // when zoom is 11.5 or less, 1.5 px
+                12, 2, // 11.5-12, 2px
                 12.5, 2.5, // 12-13, 2.5px
                 13, 4 // 13 or greater, 3px
             ],
@@ -199,7 +200,7 @@ map.on('load', () => {
                 10, '#8c6bb1', // if COUNT is 10-40
                 40, '#6e016b' // if COUNT is 40-69
             ],
-            'fill-opacity': 0.4,
+            'fill-opacity': 0.7,
             'fill-outline-color': 'black'
         },
     },
