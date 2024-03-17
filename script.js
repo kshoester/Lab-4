@@ -7,7 +7,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoia3Nob2VzdGVyIiwiYSI6ImNsdG9jOXN3djBoMnYyaW1zY
 // Initialize map and edit to your preference
 const map = new mapboxgl.Map({
     container: 'map', // container id in HTML
-    style: 'mapbox://styles/kshoester/cltsd7k7400ct01qs61u02utn',  // Mapbox style created using Toronto census tracts
+    style: 'mapbox://styles/kshoester/cltw51ko0011001qe4m155nvc',  // Mapbox style created using Toronto census tracts
     center: [-79.39, 43.65],  // starting point, longitude/latitude
     zoom: 12 // starting zoom level
 });
