@@ -158,7 +158,7 @@ map.on('load', () => {
                 ['zoom'],
                 12, 2, // when zoom is 12 or less, 2px
                 12.5, 2.5, // 12-13, 2.5px
-                13, 3 // 13 or greater, 3px
+                13, 4 // 13 or greater, 3px
             ],
             'circle-color': '#ce1256'
         },
@@ -199,7 +199,7 @@ map.on('load', () => {
                 10, '#8c6bb1', // if COUNT is 10-40
                 40, '#6e016b' // if COUNT is 40-69
             ],
-            'fill-opacity': 0.6,
+            'fill-opacity': 0.4,
             'fill-outline-color': 'black'
         },
     },
